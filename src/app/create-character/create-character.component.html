@@ -1,0 +1,18 @@
+
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <fieldset>
+      <legend>Add your favorite characters !</legend>
+      <div class="form-group">
+        <label for="name" >Character Name : </label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="ex : Chewbaccca" ngModel required #nameCtrl="ngModel">
+          <span class="help-block" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name!</span>
+      </div>
+      <div class="form-group">
+          <label for="side">Choose Side :</label>
+          <select class="form-control" id="side" name="side" ngModel>
+            <option *ngFor="let option of availableSides" [value]="option.value"> {{option.display}}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Add Character</button>
+    </fieldset>
+  </form>
