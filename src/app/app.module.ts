@@ -12,6 +12,8 @@ import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { CreateCharacterComponent } from './create-character/create-character.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes = [
   {path: 'characters', component: TabsComponent, children: [
@@ -34,7 +36,8 @@ const routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [StarWarsService, LogService],
   bootstrap: [AppComponent]
